@@ -10,5 +10,5 @@ package taistelupeli.pelaaja;
  * @author henpeura
  */
 public class Soturi extends Sankari {
-    
+
 }

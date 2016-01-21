@@ -10,5 +10,5 @@ package taistelupeli.vastus;
  * @author henpeura
  */
 public abstract class Morko {
-    
+
 }

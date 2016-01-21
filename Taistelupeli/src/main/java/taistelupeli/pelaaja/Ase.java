@@ -10,5 +10,6 @@ package taistelupeli.pelaaja;
  * @author henpeura
  */
 public interface Ase {
+
     public int teeVahinkoa();
 }

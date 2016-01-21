@@ -12,6 +12,7 @@ import java.util.Random;
  * @author henpeura
  */
 public class Miekka implements Ase {
+
     private Random r;
 
     public Miekka() {
@@ -22,6 +23,5 @@ public class Miekka implements Ase {
     public int teeVahinkoa() {
         return r.nextInt(8) + 1;
     }
-    
-    
+
 }
