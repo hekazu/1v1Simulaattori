@@ -1,14 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package taistelupeli.vastus;
 
-/**
- *
- * @author henpeura
- */
-public abstract class Morko {
+import java.util.Random;
 
+
+public abstract class Morko {
+    private int kesto;
+    protected Random r;
+    private final int armourClass;
+    
+    public Morko(int hp, int ac) {
+        this.kesto = hp;
+        this.r = new Random();
+        this.armourClass = ac;
+    }
+    
+    public int getKesto() {
+        return this.kesto;
+    }
+    
+    public boolean onkoKuollut() {
+        if (kesto > 0) {
+            return false;
+        }
+        return true;
+    }
+    
+    public void otaVahinkoa(int damaskuukkeli) {
+        this.kesto -= damaskuukkeli;
+    }
+    
+    public int getArmourClass() {
+        return this.armourClass;
+    }
+    
+    public abstract int hyokkaa();
+    
+    public abstract void spesialisoi();
 }
