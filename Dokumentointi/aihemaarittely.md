@@ -13,4 +13,4 @@ Tarinan edetessä tulee pelaaja saamaan toimintakykyä kohottavia esineitä, kut
 * Pelin päättyminen antaa mahdollisuuden aloittaa heti uudestaan
 
 ###### Luokkakaavio
-![Kaavio](1v1Simulaattori/Dokumentointi/luokkakaavio1.png)
+![Kaavio](luokkakaavio1.png)
