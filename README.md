@@ -1,2 +1,6 @@
 # 1v1Simulaattori
-Here we are ladies and gentlemen! D I G I T A L S P O R T S!
+Tässä repossa syntyy DnD:n uusimman version combatin säännöillä toimiva vuoropohjainen taistelupeli. Pelissä tulee olemaan simppeli tarina joka pysyy samana pelikerrasta toiseen.
+
+### Dokumentaatio
+- [Tarkempi aihekuvaus](Dokumentointi/aihemaarittely.md)
+- [Tehdyn työn tuntikirjanpito](Dokumentointi/tuntikirjanpito.md)

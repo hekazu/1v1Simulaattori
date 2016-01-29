@@ -2,12 +2,14 @@ package taistelupeli.pelaaja;
 
 public abstract class Sankari {
     private int kesto;
+    private final int pohjaKesto;
     private Ase ase;
     private int statMod;
     private int armourClass;
     
     public Sankari(int kesto, Ase ase, int mod, int ac) {
         this.kesto = kesto;
+        this.pohjaKesto = kesto;
         this.ase = ase;
         this.statMod = mod;
         this.armourClass = ac;
@@ -30,7 +32,9 @@ public abstract class Sankari {
     }
     
     public void otaVahinkoa(int damaskuukkeli) {
-        this.kesto -= damaskuukkeli;
+        if (damaskuukkeli > 0) {
+            this.kesto -= damaskuukkeli;
+        }
     }
     
     public boolean havisitkoPelin() {
@@ -46,6 +50,12 @@ public abstract class Sankari {
     
     public void modifyArmourClass(int mod) {
         this.armourClass += mod;
+    }
+    
+    public void parane() {
+        if (kesto > 0) {
+            this.kesto = this.pohjaKesto;
+        }
     }
     
     public abstract void spesiaali();

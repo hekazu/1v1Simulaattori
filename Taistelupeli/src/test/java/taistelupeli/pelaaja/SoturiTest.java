@@ -80,4 +80,39 @@ public class SoturiTest {
     }
     
 // Kunhan peliin saadaan lisää toimivia aseluokkia, saavat ne ja aseenvaihto testinsä
+    
+    @Test
+    public void negatiivinenVahinkoEiParanna() {
+        tauno.otaVahinkoa(-13);
+        assertEquals(tauno.getKesto(), 26);
+    }
+    
+    @Test
+    public void healPls() {
+        tauno.otaVahinkoa(12);
+        tauno.parane();
+        assertEquals(tauno.getKesto(), 26);
+    }
+    
+    @Test
+    public void paraneminenEiNostaKuolleista() {
+        tauno.otaVahinkoa(236);
+        tauno.parane();
+        assertTrue(tauno.havisitkoPelin());
+    }
+    
+    @Test
+    public void spesiaaliEiKasaannuLoputtomiin() {
+        tauno.spesiaali();
+        tauno.spesiaali();
+        tauno.spesiaali();
+        assertEquals(tauno.getArmourClass(), 19);
+    }
+    
+    @Test
+    public void hyokkaysPoistaaSpesiaalinSuomanEdun() {
+        tauno.spesiaali();
+        tauno.hyokkaa();
+        assertEquals(tauno.getArmourClass(), 17);
+    }
 }
