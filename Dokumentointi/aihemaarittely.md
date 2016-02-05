@@ -15,6 +15,3 @@ Tarinan edetessä tulee pelaaja saamaan toimintakykyä kohottavia esineitä, kut
 ###### Luokkakaavio
 <<<<<<< HEAD
 ![Kaavio](Dokumentointi/luokkakaavio2.png)
-=======
-![Kaavio](luokkakaavio1.png)
->>>>>>> bf96a0e486b1e0c604ed78bf6185eff44c5cbcfd
