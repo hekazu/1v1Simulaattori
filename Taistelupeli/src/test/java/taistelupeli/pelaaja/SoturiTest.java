@@ -21,13 +21,11 @@ public class SoturiTest {
         tauno = new Soturi();
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void soturinLuontiarvotOvatOikeat() {
         assertEquals(tauno.getKesto(), 26);
         assertEquals(tauno.getArmourClass(), 17);
+        assertEquals(tauno.getModifier(), 3);
     }
     
     @Test
@@ -79,7 +77,14 @@ public class SoturiTest {
         }
     }
     
-// Kunhan peliin saadaan lisää toimivia aseluokkia, saavat ne ja aseenvaihto testinsä
+    @Test
+    public void kirveeseenVaihdonJalkeenVahinkoPysyyUusissaRajoissa() {
+        tauno.swappinWeapons(new Kirves());
+        for (int i = 0; i < 50; i++) {
+            int kirveily = tauno.hyokkaa();
+            assertTrue(kirveily > 3 && kirveily < 16);
+        }
+    }
     
     @Test
     public void negatiivinenVahinkoEiParanna() {
@@ -114,5 +119,23 @@ public class SoturiTest {
         tauno.spesiaali();
         tauno.hyokkaa();
         assertEquals(tauno.getArmourClass(), 17);
+    }
+    
+    @Test
+    public void modifierMuovaantuuMitenKuuluu() {
+        tauno.muutaModifier(17);
+        assertEquals(tauno.getModifier(), 17);
+    }
+    
+    @Test
+    public void negatiivisiaStattimodejaEiOleEikaTule() {
+        tauno.muutaModifier(-7);
+        assertEquals(tauno.getModifier(), 3);
+    }
+    
+    @Test
+    public void stattimuuttujaEiSaaMyoskaanOllaNolla() {
+        tauno.muutaModifier(0);
+        assertEquals(tauno.getModifier(), 3);
     }
 }

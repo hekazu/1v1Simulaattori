@@ -5,6 +5,8 @@
  */
 package taistelupeli;
 
+import taistelupeli.sovelluslogiikka.Peli;
+
 /**
  *
  * @author henpeura
@@ -15,7 +17,8 @@ public class Paaohjelma {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO luo graafinen käyttöliittymä
+        new Peli().aloita();
     }
 
 }

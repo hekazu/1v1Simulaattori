@@ -37,6 +37,7 @@ public class HiisiTest {
     public void hiidetOvatLuodessaOikeanlaisia() {
         assertEquals(klarg.getKesto(), 12);
         assertEquals(klarg.getArmourClass(), 14);
+        assertEquals(klarg.getModifier(), 2);
         assertFalse(klarg.onkoKuollut());
     }
     
@@ -57,9 +58,12 @@ public class HiisiTest {
     public void hyokkaysOnRajoissa() {
         for (int i = 0; i < 50; i++) {
             int smack = klarg.hyokkaa();
-            assertTrue(smack < 7 && smack > 0);
+            assertTrue(smack < 9 && smack > 2 || smack == 0);
         }
     }
     
-    // Spesiaalin toteutettuani testaan sen tässä
+    @Test
+    public void toStringTekeeMitaKuuluu() {
+        assertEquals(klarg.toString(), "Hiisi");
+    }
 }

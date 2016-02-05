@@ -11,16 +11,25 @@ package taistelupeli.vastus;
  */
 public class Hiisi extends Morko {
     public Hiisi() {
-        super(12, 14);
+        super(12, 14, 2);
     }
 
     @Override
     public int hyokkaa() {
-        return r.nextInt(6) + 1;
+        if (r.nextBoolean()) {
+            return r.nextInt(6) + 1 + getModifier();
+        }
+        spesialisoi();
+        return 0;
     }
 
     @Override
     public void spesialisoi() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.");
+    }
+    
+    @Override
+    public String toString() {
+        return "Hiisi";
     }
 }

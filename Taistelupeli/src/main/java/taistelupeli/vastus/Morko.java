@@ -8,11 +8,13 @@ public abstract class Morko {
     private int kesto;
     protected Random r;
     private final int armourClass;
+    private final int ominaisuusMuuttuja;
     
-    public Morko(int hp, int ac) {
+    public Morko(int hp, int ac, int mod) {
         this.kesto = hp;
         this.r = new Random();
         this.armourClass = ac;
+        this.ominaisuusMuuttuja = mod;
     }
     
     public int getKesto() {
@@ -34,7 +36,14 @@ public abstract class Morko {
         return this.armourClass;
     }
     
+    public int getModifier() {
+        return ominaisuusMuuttuja;
+    }
+    
     public abstract int hyokkaa();
     
     public abstract void spesialisoi();
+    
+    @Override
+    public abstract String toString();
 }

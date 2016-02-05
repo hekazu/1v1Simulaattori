@@ -23,8 +23,14 @@ public abstract class Sankari {
         return ase.teeVahinkoa() + statMod;
     }
     
+    public int getModifier() {
+        return this.statMod;
+    }
+    
     public void muutaModifier(int uusiMod) {
-        this.statMod = uusiMod;
+        if (uusiMod > 0) {
+            this.statMod = uusiMod;
+        }
     }
     
     public void swappinWeapons(Ase uusiAse) {

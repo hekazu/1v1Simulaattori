@@ -11,3 +11,6 @@ Tarinan edetessä tulee pelaaja saamaan toimintakykyä kohottavia esineitä, kut
   * Toistaiseksi suunnitteilla ei ole kuin yksi hahmoluokka, soturi
 * Hyökkäyksen tekeminen
 * Pelin päättyminen antaa mahdollisuuden aloittaa heti uudestaan
+
+###### Luokkakaavio
+![Kaavio](Dokumentointi/luokkakaavio1.png)
