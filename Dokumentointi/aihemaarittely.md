@@ -13,5 +13,4 @@ Tarinan edetessä tulee pelaaja saamaan toimintakykyä kohottavia esineitä, kut
 * Pelin päättyminen antaa mahdollisuuden aloittaa heti uudestaan
 
 ###### Luokkakaavio
-<<<<<<< HEAD
 ![Kaavio](Dokumentointi/luokkakaavio2.png)
