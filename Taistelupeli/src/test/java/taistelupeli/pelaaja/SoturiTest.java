@@ -79,7 +79,7 @@ public class SoturiTest {
     
     @Test
     public void kirveeseenVaihdonJalkeenVahinkoPysyyUusissaRajoissa() {
-        tauno.swappinWeapons(new Kirves());
+        tauno.aseenVaihto(new Kirves());
         for (int i = 0; i < 50; i++) {
             int kirveily = tauno.hyokkaa();
             assertTrue(kirveily > 3 && kirveily < 16);

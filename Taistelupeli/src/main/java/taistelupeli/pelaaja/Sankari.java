@@ -1,5 +1,11 @@
 package taistelupeli.pelaaja;
 
+/**
+ * Luokka toimii pohjana kaikille pelaajan kontrolloimille sankareille.
+ * 
+ * @author henpeura
+ */
+
 public abstract class Sankari {
     private int kesto;
     private final int pohjaKesto;
@@ -19,6 +25,17 @@ public abstract class Sankari {
         return this.kesto;
     }
     
+    /**
+     * Metodi palauttaa sankarin hyökkäyksen vahingon kokonaisuudessaan.
+     * 
+     * @see taistelupeli.pelaaja.Miekka#teeVahinkoa() 
+     * 
+     * @see taistelupeli.pelaaja.Kirves#teeVahinkoa() 
+     * 
+     * @return aseen tuottama vahinko johon lisätään sankarin perusvoiman tuoma
+     * lisävahinko
+     */
+    
     public int hyokkaa() {
         return ase.teeVahinkoa() + statMod;
     }
@@ -27,15 +44,33 @@ public abstract class Sankari {
         return this.statMod;
     }
     
+    /**
+     * Metodi muuttaa sankarin perusominaisuuksien myöntämää voimanlisäystä.
+     * 
+     * @param uusiMod haluttu voimanlisäyksen korvaava uusi arvo 
+     */
+    
     public void muutaModifier(int uusiMod) {
         if (uusiMod > 0) {
             this.statMod = uusiMod;
         }
     }
     
-    public void swappinWeapons(Ase uusiAse) {
+    /**
+     * Metodilla vaihdetaan sankarin kätössä oleva ase.
+     * 
+     * @param uusiAse sankari käyttöön tuleva uusi Ase-olio
+     */
+    
+    public void aseenVaihto(Ase uusiAse) {
         this.ase = uusiAse;
     }
+    
+    /**
+     * Metodi vähentää sankarin kestoa halutulla määrällä.
+     * 
+     * @param damaskuukkeli vahinko, joka vähennetään sankarin kestosta
+     */
     
     public void otaVahinkoa(int damaskuukkeli) {
         if (damaskuukkeli > 0) {
@@ -43,6 +78,11 @@ public abstract class Sankari {
         }
     }
     
+    /**
+     * Metodi selvittää onko pelin häviön aiheuttava sankarin kuolema tapahtunut.
+     * 
+     * @return kertoo onko sankari kuollut
+     */
     public boolean havisitkoPelin() {
         if (kesto > 0) {
             return false;
@@ -54,10 +94,18 @@ public abstract class Sankari {
         return this.armourClass;
     }
     
+    /**
+     * Metodin muuntaa sankarin vahingontorjuntakykyä.
+     * 
+     * @param mod kertoo paljollako haarniskataso muuttuu
+     */
     public void modifyArmourClass(int mod) {
         this.armourClass += mod;
     }
     
+    /**
+     * Metodi palauttaa sankarin täysiin sielun ja ruumiin voimiin.
+     */
     public void parane() {
         if (kesto > 0) {
             this.kesto = this.pohjaKesto;

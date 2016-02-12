@@ -1,33 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package taistelupeli.vastus;
 
 /**
- *
+ * Luokka edustaa yhtä vihollistyypeistä mitä pelissä voi kohdata, hiittä.
+ * 
  * @author henpeura
  */
 public class Hiisi extends Morko {
     public Hiisi() {
         super(12, 14, 2);
     }
-
+    
+    /**
+     * Metodi kertoo kuinka hiisi tulee toimimaan.
+     * 
+     * @return muuttuja joka kertoo toivotun hyökkäystyypin
+     */
     @Override
-    public int hyokkaa() {
+    public String toimi() {
         if (r.nextBoolean()) {
-            return r.nextInt(6) + 1 + getModifier();
+            return "hyokkays";
+        } else {
+            return "erikoistaito";
         }
-        spesialisoi();
-        return 0;
     }
 
+    /**
+     * Metodi toimittaa otuksen tekemän vahingon.
+     * 
+     * @see taistelupeli.pelaaja.Sankari#hyokkaa() 
+     * 
+     * @see taistelupeli.vastus.Minotauri#hyokkaa() 
+     * 
+     * @return hyökkäyskohtainen vahinko
+     */
+    @Override
+    public int hyokkaa() {
+        return r.nextInt(6) + 1 + getModifier();
+    }
+
+    /**
+     * Metodi suorittaa Hiiden erikoistaidon.
+     * 
+     * Kyllä, se on juuri niin hyödytön kuin siinä lukee. En suosittele käyttämään.
+     */
     @Override
     public void spesialisoi() {
         System.out.println("Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.");
     }
     
+    /**
+     * Metodi palauttaa Hiiden tyypin merkkijonoesityksenä.
+     * 
+     * @return String "hiisi"
+     */
     @Override
     public String toString() {
         return "Hiisi";

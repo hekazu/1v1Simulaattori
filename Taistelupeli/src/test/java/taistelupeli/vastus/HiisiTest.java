@@ -58,7 +58,15 @@ public class HiisiTest {
     public void hyokkaysOnRajoissa() {
         for (int i = 0; i < 50; i++) {
             int smack = klarg.hyokkaa();
-            assertTrue(smack < 9 && smack > 2 || smack == 0);
+            assertTrue(smack < 9 && smack > 2);
+        }
+    }
+    
+    @Test
+    public void toimintametodiPalauttaaToimintamalliaVastaavanKaskyn() {
+        for (int i = 0; i < 10; i++) {
+            String vrt = klarg.toimi();
+            assertTrue(vrt.equals("hyokkays") || vrt.equals("erikoistaito"));
         }
     }
     
@@ -66,4 +74,6 @@ public class HiisiTest {
     public void toStringTekeeMitaKuuluu() {
         assertEquals(klarg.toString(), "Hiisi");
     }
+    
+    //spesiaali pitäis kai teoriassa testata. Osaispa PrintStreamien käsittelyn.
 }

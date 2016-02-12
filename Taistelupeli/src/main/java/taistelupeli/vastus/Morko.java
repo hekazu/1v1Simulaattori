@@ -3,7 +3,11 @@ package taistelupeli.vastus;
 
 import java.util.Random;
 
-
+/**
+ * Luokka toimii pohjana kaikille pelaajan kohtaamille vastustajille.
+ * 
+ * @author henpeura
+ */
 public abstract class Morko {
     private int kesto;
     protected Random r;
@@ -21,6 +25,12 @@ public abstract class Morko {
         return this.kesto;
     }
     
+    /**
+     * Metodi selvitää onko kyseinen hirviö menettänyt kaikki kestopisteensä
+     * ja tuupertunut.
+     * 
+     * @return otuksen kuolematilanne
+     */
     public boolean onkoKuollut() {
         if (kesto > 0) {
             return false;
@@ -28,6 +38,11 @@ public abstract class Morko {
         return true;
     }
     
+    /**
+     * Metodilla vähennetään mörön kestoa syötteen verran.
+     * 
+     * @param damaskuukkeli mörön kestosta vähennettävä määrä
+     */
     public void otaVahinkoa(int damaskuukkeli) {
         this.kesto -= damaskuukkeli;
     }
@@ -39,6 +54,8 @@ public abstract class Morko {
     public int getModifier() {
         return ominaisuusMuuttuja;
     }
+    
+    public abstract String toimi();
     
     public abstract int hyokkaa();
     

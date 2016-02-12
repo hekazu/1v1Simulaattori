@@ -7,3 +7,5 @@
 - 29.1.2016, kolmisen (3) tuntia upotettu testien viimeistelyyn ja dokumentaation saattamiseen halututlle tasolle. Pitänee kirjoittaa erilliset palautusmetodit muun muassa stat modifierille jotta niitä on helpompi testata tulevaisuudessa. Luokkakaavionpiirtosivu tuotti hieman päänvaivaa, mutta siitäkin lopulta selvittiin.
 
 - 5.2.2016, kolmisen (3) tuntia koodin kasvattamista ja testien tekemisen yrittelyä. Pitänee lopultakin raahautua pajaan ensi viikolla kysymään neuvoja muutamiin toteutuksiin ja println() metodien testaamiseen. Lisäksi graafinen käyttöliittymä pitää aloittaa. Ei sovi unohtaa puolta tuntia (30min) joka käytettiin dokumentaation päivittämiseen.
+
+- 12.2.2016, käytetty yhteensä neljä ja puoli tuntia (4,5). Ohjelman refaktorointiin ja käyttöliittymän pohjustukseen kului tästä noin kaksi ja puoli (2,5) ja loput kaksi dokumentaation päivittämiseen.

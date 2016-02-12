@@ -8,20 +8,46 @@ public class Minotauri extends Morko {
         super(40, 12, 4);
         this.ryntays = false;
     }
+    
+    /**
+     * Metodi palauttaa tämän vuoron toimintatyypin muuttujamuodossa.
+     * 
+     * @return tällä vuorolla käytettävä hyökkäystyyppi
+     */
+    @Override
+    public String toimi() {
+        if (!ryntays) {
+            if (r.nextDouble() > 0.3) {
+                return "hyokkays";
+            }
+            return "erikoistaito";
+        }
+        return "hyokkays";
+    }
 
+    /**
+     * Metodi palauttaa hyökkäyskohtaisen vahinkomäärän.
+     * 
+     * Erikoistaidon ollessa voimassa hyökkäyksen vahinko on huomattavasti suurempi.
+     * 
+     * @see taistelupeli.pelaaja.Sankari#hyokkaa() 
+     * 
+     * @see taistelupeli.vastus.Hiisi#hyokkaa() 
+     * 
+     * @return hyökkäyskohtainen vahinkomäärä
+     */
     @Override
     public int hyokkaa() {
         if (!ryntays) {
-            if (r.nextDouble() > 0.3) {
-                return r.nextInt(12) + 1 + super.getModifier();
-            }
-            spesialisoi();
-            return 0;
+            return r.nextInt(12) + 1 + super.getModifier();
         }
         ryntays = false;
-        return r.nextInt(12) + r.nextInt(12) + (super.getModifier() * 2);
+        return r.nextInt(12) + r.nextInt(12) + 2 + (super.getModifier() * 2);
     }
 
+    /**
+     * Metodi asettaa Minotaurin erikoiskyvyn voimaan, vahvistaen seuravaa normaalihyökkäystä.
+     */
     @Override
     public void spesialisoi() {
         System.out.println("Hirviömäinen otus polkee sorkkajalkaansa maata vasten ja "
@@ -29,8 +55,24 @@ public class Minotauri extends Morko {
         ryntays = true;
     }
     
+    /**
+     * Metodi palauttaa luokan tyypin mukaisen merkkijonoesityksen.
+     * 
+     * @return String "Minotauri"
+     */
     @Override
     public String toString() {
         return "Minotauri";
+    }
+    
+    /**
+     * Testitarkoituksia varten luotu metodi.
+     * 
+     * Metodilla ei ole käyttötarkoitusta muualla ohjelmassa.
+     * 
+     * @return onko minotaurin seuraava hyökkäys ryntäys
+     */
+    public boolean getSpecialStatus() {
+        return ryntays;
     }
 }

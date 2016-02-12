@@ -39,6 +39,7 @@ public class MinotauriTest {
         assertEquals(etc.getArmourClass(), 12);
         assertEquals(etc.getModifier(), 4);
         assertFalse(etc.onkoKuollut());
+        assertFalse(etc.getSpecialStatus());
     }
     
     @Test
@@ -59,5 +60,41 @@ public class MinotauriTest {
         assertTrue(etc.onkoKuollut());
     }
     
-    //Pitää vielä miettiä Minotaurin spesiaalin toteutusta. Toistaiseksi se sotkee hyökkäystestit...
+    @Test
+    public void hyokkaysOnRajoissa() {
+        for (int i = 0; i < 75; i++) {
+            int vrt = etc.hyokkaa();
+            assertTrue(vrt < 17 && vrt > 4);
+        }
+    }
+    
+    @Test
+    public void spesiaaliToimiiTeoriassa() {
+        etc.spesialisoi();
+        assertTrue(etc.getSpecialStatus());
+    }
+    
+    @Test
+    public void spesiaaliEiJaaElamaan() {
+        etc.spesialisoi();
+        etc.hyokkaa();
+        assertFalse(etc.getSpecialStatus());
+    }
+    
+    @Test
+    public void spesiaaliHyokkaysOnRajoissa() {
+        for (int i = 0; i < 75; i++) {
+            etc.spesialisoi();
+            int vrt = etc.hyokkaa();
+            assertTrue(vrt < 33 && vrt > 9);
+        }
+    }
+    
+    @Test
+    public void toimintametodiPalauttaaToimintamalliaVastaavanKaskyn() {
+        for (int i = 0; i < 10; i++) {
+            String vrt = etc.toimi();
+            assertTrue(vrt.equals("hyokkays") || vrt.equals("erikoistaito"));
+        }
+    }
 }
