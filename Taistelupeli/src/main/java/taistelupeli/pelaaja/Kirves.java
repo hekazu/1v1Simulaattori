@@ -13,6 +13,9 @@ import java.util.Random;
 public class Kirves implements Ase {
     private Random r;
     
+    /**
+     * Konstruktori luo kirveen ja siihen kuuluvan satunnaisgeneroijan.
+     */
     public Kirves() {
         r = new Random();
     }

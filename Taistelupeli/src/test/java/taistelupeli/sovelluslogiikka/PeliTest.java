@@ -33,11 +33,5 @@ public class PeliTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    @Test
-    public void osumaheitotOvatFiksuja() {
-        for (int i = 0; i < 75; i++) {
-            int heitto = gameOfNoLife.osumaHeitto();
-            assertTrue(heitto > 0 && heitto < 21);
-        }
-    }
+
 }

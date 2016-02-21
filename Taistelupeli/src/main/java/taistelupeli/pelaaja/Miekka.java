@@ -14,6 +14,9 @@ public class Miekka implements Ase {
 
     private Random r;
 
+    /**
+     * Konstrukstori luo olion ja siihen kuuluvan satunnaisgeneroijan.
+     */
     public Miekka() {
         r = new Random();
     }

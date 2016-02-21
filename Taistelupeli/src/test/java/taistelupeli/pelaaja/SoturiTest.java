@@ -23,7 +23,7 @@ public class SoturiTest {
 
     @Test
     public void soturinLuontiarvotOvatOikeat() {
-        assertEquals(tauno.getKesto(), 26);
+        assertEquals(tauno.getKesto(), 32);
         assertEquals(tauno.getArmourClass(), 17);
         assertEquals(tauno.getModifier(), 3);
     }
@@ -35,13 +35,13 @@ public class SoturiTest {
     
     @Test
     public void vahinkoAsettuuKestoon() {
-        tauno.otaVahinkoa(13);
-        assertEquals(tauno.getKesto(), 13);
+        tauno.otaVahinkoa(16);
+        assertEquals(tauno.getKesto(), 16);
     }
     
     @Test
     public void kuolemaSattuu() {
-        tauno.otaVahinkoa(26);
+        tauno.otaVahinkoa(32);
         assertTrue(tauno.havisitkoPelin());
     }
     
@@ -89,14 +89,14 @@ public class SoturiTest {
     @Test
     public void negatiivinenVahinkoEiParanna() {
         tauno.otaVahinkoa(-13);
-        assertEquals(tauno.getKesto(), 26);
+        assertEquals(tauno.getKesto(), 32);
     }
     
     @Test
     public void healPls() {
         tauno.otaVahinkoa(12);
         tauno.parane();
-        assertEquals(tauno.getKesto(), 26);
+        assertEquals(tauno.getKesto(), 32);
     }
     
     @Test

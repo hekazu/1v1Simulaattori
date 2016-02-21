@@ -1,12 +1,19 @@
 
 package taistelupeli.vastus;
 
+import taistelupeli.sovelluslogiikka.Toiminto;
+import static taistelupeli.sovelluslogiikka.Toiminto.ERIKOISTAITO;
+import static taistelupeli.sovelluslogiikka.Toiminto.HYOKKAYS;
+
 /**
  * Luokka edustaa yhtä vihollistyypeistä mitä pelissä voi kohdata, hiittä.
  * 
  * @author henpeura
  */
 public class Hiisi extends Morko {
+    /**
+     * Konstruktori luo Mörkötyypin Hiisi edustajan.
+     */
     public Hiisi() {
         super(12, 14, 2);
     }
@@ -14,14 +21,14 @@ public class Hiisi extends Morko {
     /**
      * Metodi kertoo kuinka hiisi tulee toimimaan.
      * 
-     * @return muuttuja joka kertoo toivotun hyökkäystyypin
+     * @return enum joka kertoo toivotun hyökkäystyypin
      */
     @Override
-    public String toimi() {
+    public Toiminto toimi() {
         if (r.nextBoolean()) {
-            return "hyokkays";
+            return HYOKKAYS;
         } else {
-            return "erikoistaito";
+            return ERIKOISTAITO;
         }
     }
 
@@ -30,7 +37,9 @@ public class Hiisi extends Morko {
      * 
      * @see taistelupeli.pelaaja.Sankari#hyokkaa() 
      * 
-     * @see taistelupeli.vastus.Minotauri#hyokkaa() 
+     * @see taistelupeli.vastus.Minotauri#hyokkaa()
+     * 
+     * @see taistelupeli.vastus.Luurankokuningas#hyokkaa() 
      * 
      * @return hyökkäyskohtainen vahinko
      */

@@ -13,6 +13,14 @@ public abstract class Sankari {
     private int statMod;
     private int armourClass;
     
+    /**
+     * Konstruktori luo pelattavan sankarin.
+     * 
+     * @param kesto kuinka paljon vahinkoa sankari kestää
+     * @param ase millä Ase-interfacen toteuttavalla aseella sankari taistelee
+     * @param mod sankarin "heittoihin" vaikuttava muuttuja
+     * @param ac sankarin väistely- ja puolustautumiskykyä kuvaava muuttuja
+     */
     public Sankari(int kesto, Ase ase, int mod, int ac) {
         this.kesto = kesto;
         this.pohjaKesto = kesto;
@@ -112,5 +120,8 @@ public abstract class Sankari {
         }
     }
     
+    /**
+     * Kunkin sankarityypin itse toteutettava erikistaito.
+     */
     public abstract void spesiaali();
 }

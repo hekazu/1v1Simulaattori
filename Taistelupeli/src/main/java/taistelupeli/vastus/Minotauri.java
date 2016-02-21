@@ -1,28 +1,42 @@
 
 package taistelupeli.vastus;
 
+import taistelupeli.sovelluslogiikka.Toiminto;
+import static taistelupeli.sovelluslogiikka.Toiminto.ERIKOISTAITO;
+import static taistelupeli.sovelluslogiikka.Toiminto.HYOKKAYS;
+
+/**
+ * Luokka edustaa yhtä vihollistyypeistä mitä pelissä voi kohdata, minotauria.
+ * 
+ * @author henpeura
+ */
 public class Minotauri extends Morko {
     private boolean ryntays;
 
+    /**
+     * Konstruktori luo olion luokasta Minotauri.
+     * 
+     * Erikoistoiminto ei ole päällä aloittaessa.
+     */
     public Minotauri() {
         super(40, 12, 4);
         this.ryntays = false;
     }
     
     /**
-     * Metodi palauttaa tämän vuoron toimintatyypin muuttujamuodossa.
+     * Metodi palauttaa tämän vuoron toimintatyypin enummuodossa.
      * 
      * @return tällä vuorolla käytettävä hyökkäystyyppi
      */
     @Override
-    public String toimi() {
+    public Toiminto toimi() {
         if (!ryntays) {
             if (r.nextDouble() > 0.3) {
-                return "hyokkays";
+                return HYOKKAYS;
             }
-            return "erikoistaito";
+            return ERIKOISTAITO;
         }
-        return "hyokkays";
+        return HYOKKAYS;
     }
 
     /**
@@ -33,6 +47,8 @@ public class Minotauri extends Morko {
      * @see taistelupeli.pelaaja.Sankari#hyokkaa() 
      * 
      * @see taistelupeli.vastus.Hiisi#hyokkaa() 
+     * 
+     * @see taistelupeli.vastus.Luurankokuningas#hyokkaa() 
      * 
      * @return hyökkäyskohtainen vahinkomäärä
      */

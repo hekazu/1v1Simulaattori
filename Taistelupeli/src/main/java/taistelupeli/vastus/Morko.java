@@ -2,6 +2,7 @@
 package taistelupeli.vastus;
 
 import java.util.Random;
+import taistelupeli.sovelluslogiikka.Toiminto;
 
 /**
  * Luokka toimii pohjana kaikille pelaajan kohtaamille vastustajille.
@@ -14,6 +15,12 @@ public abstract class Morko {
     private final int armourClass;
     private final int ominaisuusMuuttuja;
     
+    /**
+     * Mörön perimmäisen olevaisuuden täyttävien ominaisuuksien määrittely tapahtuu tässä konstruktorissa.
+     * @param hp Mörön vahingonsietokyky
+     * @param ac Mörön väistely- ja puolustustaito
+     * @param mod Mörön hyökkäyksiin vaikuttava muuttuja
+     */
     public Morko(int hp, int ac, int mod) {
         this.kesto = hp;
         this.r = new Random();
@@ -55,10 +62,22 @@ public abstract class Morko {
         return ominaisuusMuuttuja;
     }
     
-    public abstract String toimi();
+    /**
+     * Metodi palauttaa mörön seuraavan toiminnon.
+     * Toteutus vaihtelee hirviökohtaisesti.
+     * @return enum joka kertoo toiminnon tyypin
+     */
+    public abstract Toiminto toimi();
     
+    /**
+     * Metodi kertoo hyökkäysvahingon hirviökohtaisesti eroavalta vaihteluväliltä.
+     * @return vahingon määrä kokonaislukuna
+     */
     public abstract int hyokkaa();
     
+    /**
+     * Metodi toteuttaa hirviökohtaisesti määriteltävän erikoistoiminnon.
+     */
     public abstract void spesialisoi();
     
     @Override

@@ -10,9 +10,14 @@ package taistelupeli.pelaaja;
 
 public class Soturi extends Sankari {
     private final int pohjaArmourClass;
-    // olio luodaan placeholder stateilla, tarkasta manuaaleista joku kerta osuvammat
+    
+    /**
+     * Konstruktori luo Sankarityypin Soturi.
+     * 
+     * Soturin erikoiskyky on nostaa AC:taan.
+     */
     public Soturi() {
-        super(26, new Miekka(), 3, 17);
+        super(32, new Miekka(), 3, 17);
         this.pohjaArmourClass = 17;
     }
     

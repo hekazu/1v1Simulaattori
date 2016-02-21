@@ -9,6 +9,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import taistelupeli.sovelluslogiikka.Toiminto;
+import static taistelupeli.sovelluslogiikka.Toiminto.ERIKOISTAITO;
+import static taistelupeli.sovelluslogiikka.Toiminto.HYOKKAYS;
 
 /**
  *
@@ -93,8 +96,8 @@ public class MinotauriTest {
     @Test
     public void toimintametodiPalauttaaToimintamalliaVastaavanKaskyn() {
         for (int i = 0; i < 10; i++) {
-            String vrt = etc.toimi();
-            assertTrue(vrt.equals("hyokkays") || vrt.equals("erikoistaito"));
+            Toiminto vrt = etc.toimi();
+            assertTrue(vrt == HYOKKAYS || vrt == ERIKOISTAITO);
         }
     }
 }

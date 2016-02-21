@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 11,
-             Errors: 25,
+      <title>File: 14,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,20 +46,6 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#taistelupeli.vastus.Minotauri.java">taistelupeli/vastus/Minotauri.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#taistelupeli.sovelluslogiikka.Peli.java">taistelupeli/sovelluslogiikka/Peli.java</a>
                 </td>
                 <td>
@@ -75,6 +61,76 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#taistelupeli.pelaaja.Ase.java">taistelupeli/pelaaja/Ase.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#taistelupeli.sovelluslogiikka.Osumanoppa.java">taistelupeli/sovelluslogiikka/Osumanoppa.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#taistelupeli.Paaohjelma.java">taistelupeli/Paaohjelma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#taistelupeli.kayttoliittyma.Kayttis.java">taistelupeli/kayttoliittyma/Kayttis.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#taistelupeli.vastus.Hiisi.java">taistelupeli/vastus/Hiisi.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#taistelupeli.vastus.Minotauri.java">taistelupeli/vastus/Minotauri.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +172,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#taistelupeli.Paaohjelma.java">taistelupeli/Paaohjelma.java</a>
+                  <a href="${project.url}/checkstyle.html#taistelupeli.sovelluslogiikka.Toiminto.java">taistelupeli/sovelluslogiikka/Toiminto.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#taistelupeli.vastus.Luurankokuningas.java">taistelupeli/vastus/Luurankokuningas.java</a>
                 </td>
                 <td>
                   0
@@ -131,34 +201,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#taistelupeli.pelaaja.Soturi.java">taistelupeli/pelaaja/Soturi.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#taistelupeli.kayttoliittyma.Kayttis.java">taistelupeli/kayttoliittyma/Kayttis.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  25
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#taistelupeli.vastus.Hiisi.java">taistelupeli/vastus/Hiisi.java</a>
                 </td>
                 <td>
                   0
