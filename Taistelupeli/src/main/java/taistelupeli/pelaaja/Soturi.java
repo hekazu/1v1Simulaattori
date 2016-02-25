@@ -39,12 +39,15 @@ public class Soturi extends Sankari {
     }
     /**
      * Metodi kasvattaa soturin haarniskointiarvoa seuraavaan hyökkäykseen saakka.
+     * @return spesiaalin käytössäolotilanteesta riippuva inforuutuun siirrettävä ilmoitus
      */
     @Override
-    public void spesiaali() {
+    public String spesiaali() {
         if (super.getArmourClass() == pohjaArmourClass) {
             super.modifyArmourClass(2);
+            return "Nostat kilpesi puolustusvalmiuteen.\n";
         }
+        return "Pidät puolustusvalmiutesi.\n";
     }
 
 }

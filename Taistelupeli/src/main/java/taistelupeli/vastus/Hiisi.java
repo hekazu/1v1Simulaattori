@@ -52,10 +52,11 @@ public class Hiisi extends Morko {
      * Metodi suorittaa Hiiden erikoistaidon.
      * 
      * Kyllä, se on juuri niin hyödytön kuin siinä lukee. En suosittele käyttämään.
+     * @return hiiden erikoistaito koonaisuudessaan
      */
     @Override
-    public void spesialisoi() {
-        System.out.println("Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.");
+    public String spesialisoi() {
+        return "Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.\n";
     }
     
     /**

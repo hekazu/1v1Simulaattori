@@ -138,4 +138,23 @@ public class SoturiTest {
         tauno.muutaModifier(0);
         assertEquals(tauno.getModifier(), 3);
     }
+    
+    @Test
+    public void toStringToimittaaAlkuarvoisestiOikeatArvot() {
+        String vrt = "Kesto: 32\nAse: Miekka\nAC: 17\nMod: 3";
+        assertEquals(tauno.toString(), vrt);
+    }
+    
+    @Test
+    public void spesiaaliPalauttaaEnsimmaisellaKaytollaOikeanMerkkijonon() {
+        assertEquals(tauno.spesiaali(), "Nostat kilpesi puolustusvalmiuteen.\n");
+    }
+    
+    @Test
+    public void spesiaaliPalauttaaSeuraavillaKaytoillaOikeanMerkkijonon() {
+        tauno.spesiaali();
+        for (int i = 0; i < 4; i++) {
+            assertEquals(tauno.spesiaali(), "Pidät puolustusvalmiutesi.\n");
+        }
+    }
 }

@@ -31,4 +31,9 @@ public class MiekkaTest {
             assertTrue(osuma > 0 && osuma < 9);
         }
     }
+    
+    @Test
+    public void toStringOnToimiva() {
+        assertEquals(raimo.toString(), "Miekka");
+    }
 }

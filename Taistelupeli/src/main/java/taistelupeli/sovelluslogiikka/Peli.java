@@ -2,6 +2,8 @@ package taistelupeli.sovelluslogiikka;
 
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import taistelupeli.kayttoliittyma.Kayttis;
 import taistelupeli.pelaaja.Kirves;
 import taistelupeli.pelaaja.Sankari;
@@ -12,11 +14,11 @@ import taistelupeli.vastus.Minotauri;
 import taistelupeli.vastus.Morko;
 
 /**
- * Luokka toimii sankarin ja hirviöiden välikätenä, antaen näille mahdollisuuden hakata toisiaan.
- * 
+ * Luokka toimii sankarin ja hirviöiden välikätenä, antaen näille mahdollisuuden
+ * hakata toisiaan.
+ *
  * @author henpeura
  */
-
 public class Peli {
 
     private Kayttis kayttoliittyma;
@@ -26,52 +28,86 @@ public class Peli {
     private Scanner lukija;
     private Osumanoppa hitscan;
 
-    // toistaiseksi luodaan versio pelistä joka debugataan tekstipohjaisen käyttiksen kautta
     /**
-     * Konstruktori luo monista hajanaisista luokista kokonaisuuden jota Peli käsittelee.
+     * Konstruktori luo monista hajanaisista luokista kokonaisuuden jota Peli
+     * käsittelee.
      */
     public Peli() {
         pelaaja = new Soturi();
-        
+
         kampanja = new Stack();
         kampanja.push(new Luurankokuningas(pelaaja));
         kampanja.push(new Minotauri());
         kampanja.push(new Hiisi());
-        
+
         pahis = kampanja.pop();
         hitscan = new Osumanoppa();
         lukija = new Scanner(System.in);
-        
-        kayttoliittyma = new Kayttis();
+
+        kayttoliittyma = new Kayttis(this);
     }
 
     /**
-     * Metodi käynnistää pelin ja organisoi vuorojärjestyksen.
+     * Metodi käynnistää pelin.
      */
-    public void aloita() {    
-        System.out.println("Komennot:\n"
-                + " 1. Hyökkää\n"
-                + " 2. Spesiaali\n"
-                + " 3. Seuraava\n");
-        System.out.println(pahis + " seisoo tielläsi!");
-        while (true) {
-            pelaajanVuoro();
-            if (pahis.onkoKuollut()) {
-                if (onkoKampanjaOhi()) {
-                    System.out.println("Voitit!");
-                    break;
-                } else {
-                    continue;
-                }
+    public void aloita() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                kayttoliittyma.setVisible(true);
             }
+        });
+        kayttoliittyma.paivitaInforuutu(pahis + " seisoo tielläsi!\n");
+        kayttoliittyma.paivitaSankarinTiedot(pelaaja.toString());
+    }
+
+    private void paivitaPelitilanne() {
+        boolean kasitteleVihollisenVuoro = true;
+        if (pahis.onkoKuollut()) {
+            kasitteleVihollisenVuoro = false;
+            if (onkoKampanjaOhi()) {
+                kayttoliittyma.paivitaInforuutu("Voitit!");
+                kayttoliittyma.setEnabled(false);
+            }
+        }
+        if (kasitteleVihollisenVuoro) {
             pahiksenVuoro();
+            kayttoliittyma.paivitaSankarinTiedot(pelaaja.toString());
             if (pelaaja.havisitkoPelin()) {
-                System.out.println("Turpiin tuli.");
-                break;
+                kayttoliittyma.paivitaInforuutu("Turpiin tuli.\nRIP");
+                kayttoliittyma.setEnabled(false);
             }
         }
     }
 
+    /**
+     * Metodi toimii käyttöliittymän linkkinä saada pelaajan käskyt mukaan
+     * peliin.
+     *
+     * Loppupuolella kutsutaan vuorojärjestyksen ylläpitävää metodia
+     * paivitaPelitilanne()
+     *
+     * @param hereWeGo pelaajan painamaa näppäintä vastaava komento
+     */
+    public void pelaajanVuoro(Toiminto hereWeGo) {
+        switch (hereWeGo) {
+            case HYOKKAYS:
+                pelaajanHyokkays();
+                kayttoliittyma.paivitaSankarinTiedot(pelaaja.toString());
+                break;
+            case ERIKOISTAITO:
+                kayttoliittyma.paivitaInforuutu(pelaaja.spesiaali());
+                kayttoliittyma.paivitaSankarinTiedot(pelaaja.toString());
+                break;
+            default:
+                kayttoliittyma.paivitaInforuutu("\n\nTapahtui tuntematon komentovirhe. Sulje käyttöliittymä ja yritä myöhemmin uudestaan.");
+                kayttoliittyma.setEnabled(false);
+                break;
+        }
+        paivitaPelitilanne();
+    }
+
+//      Tekstipohjaiseen debuggaukseen
     private void pelaajanVuoro() {
         System.out.println("Sinulla on vielä " + pelaaja.getKesto()
                 + " pistettä kestoa jäljellä.");
@@ -95,46 +131,60 @@ public class Peli {
     private void pahiksenVuoro() {
         Toiminto toiminto = pahis.toimi();
         switch (toiminto) {
-            case HYOKKAYS :
+            case HYOKKAYS:
                 int auts = pahis.hyokkaa();
                 if (hitscan.osuuko(pahis.getModifier(), pelaaja.getArmourClass())) {
                     pelaaja.otaVahinkoa(auts);
-                    System.out.println(pahis + " osuu sinuun hyökkäyksellään, "
+                    kayttoliittyma.paivitaInforuutu(pahis + " osuu sinuun hyökkäyksellään, "
                             + "aiheuttaen " + auts + " vahinkoa!\n");
                 } else {
-                    System.out.println("Kaikeksi onneksi " + pahis + " lyö ohi.\n");
+                    kayttoliittyma.paivitaInforuutu("Kaikeksi onneksi " + pahis + " lyö ohi.\n");
                 }
                 break;
-            case ERIKOISTAITO :
-                pahis.spesialisoi();
+            case ERIKOISTAITO:
+                kayttoliittyma.paivitaInforuutu(pahis.spesialisoi());
                 break;
         }
     }
 
     private void pelaajanHyokkays() {
+        int vahinko = pelaaja.hyokkaa();
         if (hitscan.osuuko(pelaaja.getModifier(), pahis.getArmourClass())) {
-            int vahinko = pelaaja.hyokkaa();
             pahis.otaVahinkoa(vahinko);
-            System.out.println("Lyöntisi osuu, tehden " + vahinko + " vahinkoa.\n");
+            kayttoliittyma.paivitaInforuutu("Lyöntisi osuu, tehden " + vahinko + " vahinkoa.\n");
         } else {
-            System.out.println("Lyöntisi menee ohi.\n");
+            kayttoliittyma.paivitaInforuutu("Lyöntisi menee ohi.\n");
         }
     }
-    
+
     private boolean onkoKampanjaOhi() {
-        System.out.println(pahis + " kaatuu kuolleena maahan.");
+        kayttoliittyma.paivitaInforuutu(pahis + " kaatuu kuolleena maahan.\n");
         if (kampanja.empty()) {
             return true;
         } else {
             if (pahis.toString().equals("Minotauri")) {
                 pelaaja.aseenVaihto(new Kirves());
-                System.out.println("Poimit minotaurin aseen käyttöösi. Onhan se hieman isokokoinen, mutta toiminee hyvin.");
+                kayttoliittyma.paivitaInforuutu("Poimit minotaurin aseen käyttöösi.\nOnhan se hieman isokokoinen, mutta toiminee hyvin.\n"
+                        + "Taitosi tuntuvat muutenkin kehittyneen seikkailun edetessä!\nTaitoarvosi nousee!\n");
+                pelaaja.muutaModifier(pelaaja.getModifier() + 1);
             }
             pahis = kampanja.pop();
-            System.out.println(pahis + " nousee varjoista valmiina taisteluun!\n"
-                            + "Päättäväisyys vyöryy ylitsesi. Paranet täysin vammoistasi!\n");
+            kayttoliittyma.paivitaInforuutu(pahis + " nousee varjoista valmiina taisteluun!\n"
+                    + "Päättäväisyys vyöryy ylitsesi. Paranet täysin vammoistasi!\n");
             pelaaja.parane();
+            kayttoliittyma.paivitaSankarinTiedot(pelaaja.toString());
             return false;
         }
+    }
+
+    private void pelaaUudestaan() {
+        pelaaja = new Soturi();
+
+        kampanja = new Stack();
+        kampanja.push(new Luurankokuningas(pelaaja));
+        kampanja.push(new Minotauri());
+        kampanja.push(new Hiisi());
+
+        pahis = kampanja.pop();
     }
 }

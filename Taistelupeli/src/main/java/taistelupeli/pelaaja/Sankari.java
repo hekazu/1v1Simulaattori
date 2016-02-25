@@ -122,6 +122,19 @@ public abstract class Sankari {
     
     /**
      * Kunkin sankarityypin itse toteutettava erikistaito.
+     * @return käyttöliittymän näyttämä info taidosta
      */
-    public abstract void spesiaali();
+    public abstract String spesiaali();
+    
+    /**
+     * Metodi toimittaa sankarin tiedot inforuudulle.
+     * @return sankarin tämän hetkiset tiedot
+     */
+    @Override
+    public String toString() {
+        return "Kesto: " + kesto +"\n"
+             + "Ase: " + ase + "\n"
+             + "AC: " + armourClass + "\n"
+             + "Mod: " + statMod;
+    }
 }

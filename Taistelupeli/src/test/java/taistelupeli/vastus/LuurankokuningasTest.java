@@ -92,4 +92,14 @@ public class LuurankokuningasTest {
             assertTrue(vrt >= 6 && vrt <= 16);
         }
     }
+    
+    @Test
+    public void spesiaalinReturnitOvatOikein() {
+        assertEquals(leoric.spesialisoi(), "Tämä riittää! On aika lopettaa taistelumme!\n"
+                        + leoric + "alkaa manata jotain suurta...\n");
+        assertEquals(leoric.spesialisoi(), "Tuhosi koittaa pian! " + leoric + " julistaa.\n");
+        assertEquals(leoric.spesialisoi(), leoric + " naurahtaa: \"Nyeh-heh-heh!\"\n");
+        assertEquals(leoric.spesialisoi(), leoric + " on melkein valmis loitsunsa kanssa!\nHänen on kaaduttava nyt!\n");
+        assertEquals(leoric.spesialisoi(), "Loppu on tullut. " + leoric + " laukaisee loitsunsa!\n");
+    }
 }

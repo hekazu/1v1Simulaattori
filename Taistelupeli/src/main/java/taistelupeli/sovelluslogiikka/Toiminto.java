@@ -11,5 +11,5 @@ package taistelupeli.sovelluslogiikka;
  * @author henpeura
  */
 public enum Toiminto {
-    HYOKKAYS, ERIKOISTAITO, SEURAAVA;
+    HYOKKAYS, ERIKOISTAITO;
 }

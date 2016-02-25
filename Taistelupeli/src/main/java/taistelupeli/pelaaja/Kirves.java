@@ -32,4 +32,13 @@ public class Kirves implements Ase {
     public int teeVahinkoa() {
         return r.nextInt(12) + 1;
     }
+    
+    /**
+     * Metodi palauttaa aseen merkkijonomuodon.
+     * @return aseen nimi
+     */
+    @Override
+    public String toString() {
+        return "Kirves";
+    }
 }

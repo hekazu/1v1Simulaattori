@@ -12,4 +12,11 @@ public interface Ase {
      * @return kyseisen hyökkäyksen vahinkomäärä
      */
     public int teeVahinkoa();
+    
+    /**
+     * Palauttaa aseen merkkijonoesityksen.
+     * @return aseen nimi
+     */
+    @Override
+    public String toString();
 }

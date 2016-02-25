@@ -77,8 +77,9 @@ public abstract class Morko {
     
     /**
      * Metodi toteuttaa hirviökohtaisesti määriteltävän erikoistoiminnon.
+     * @return spesiaalin kuvaava merkkijono-osio
      */
-    public abstract void spesialisoi();
+    public abstract String spesialisoi();
     
     @Override
     public abstract String toString();

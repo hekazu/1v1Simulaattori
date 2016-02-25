@@ -13,3 +13,7 @@
 - 20.2.2016, käytetty puolitoista tuntia refaktoroinnin järjestelyjen miettimiseen. Koodiin ei koskettu.
 
 - 21.2.2016, käytetty 2h 15min koodin refaktorointiin ja käyttiksen kanssa jumiin jäämiseen. Nyt se pajareissu on jo pakollinen. Here's hoping en onnistu unohtamaan. Tämän jälkeen puolitoista (1,5) tuntia Checkstyle virheiden haravointia ja kaavioiden päivittelyä. Javadocceja tarvittiinkin enemmän kuin oletin.
+
+- 22.2.2016, sain raahattua itseni pajan puolelle. Tarvittavat neuvot löytyivät kivasti ja muunsin ohjelmaani toimimaan "graafisen" liittymän kautta kahden tunnin ja viidentoista minuutin (2h 15m) ajan. Muutamia oleellisia muutoksia oli tehtävä, erityisesti harmittaa "seuraava" napista luopuminen. Noh, näin tulee ainakin Baldur's gatempi fiilis!
+
+- 24.2.2016, kolme varttia (45min) käytetty koodin erinäisiin pikkumuutoksiin, muun muassa sankarin spesiaalin käyttöliittymäpäivitysten toteuttamiseen. Javadocceja myös päivitetty vastaamaan muutoksia.

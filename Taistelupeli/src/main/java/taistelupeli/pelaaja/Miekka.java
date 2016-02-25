@@ -34,4 +34,12 @@ public class Miekka implements Ase {
         return r.nextInt(8) + 1;
     }
 
+    /**
+     * Metodi palautaa aseen merkkijonomuodon.
+     * @return aseen nimi
+     */
+    @Override
+    public String toString() {
+        return "Miekka";
+    }
 }

@@ -38,4 +38,9 @@ public class KirvesTest {
             assertTrue(vah < 13);
         }
     }
+    
+    @Test
+    public void toStringOnToimiva() {
+        assertEquals(andMuhAx.toString(), "Kirves");
+    }
 }

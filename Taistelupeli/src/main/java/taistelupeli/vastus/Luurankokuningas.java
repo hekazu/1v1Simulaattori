@@ -11,18 +11,22 @@ import static taistelupeli.sovelluslogiikka.Toiminto.ERIKOISTAITO;
 import static taistelupeli.sovelluslogiikka.Toiminto.HYOKKAYS;
 
 /**
- * Luokka edustaa viimeistä ja voimakkainta kohdattavissa olevaa vihollista, Luurankokuningasta.
- * 
+ * Luokka edustaa viimeistä ja voimakkainta kohdattavissa olevaa vihollista,
+ * Luurankokuningasta.
+ *
  * @author henpeura
  */
 public class Luurankokuningas extends Morko {
+
     private int ultimaLaskuri;
     private final Sankari kohde;
 
     /**
-     * Konstruktori luo ilmenenmän Luurankokuninkaasta ja asettaa tämän spesiaalin kohteen.
-     * 
-     * @param kohde Luurankokuninkaan vastustaja, jonka spesiaali toteutuessaan tappaa
+     * Konstruktori luo ilmenenmän Luurankokuninkaasta ja asettaa tämän
+     * spesiaalin kohteen.
+     *
+     * @param kohde Luurankokuninkaan vastustaja, jonka spesiaali toteutuessaan
+     * tappaa
      */
     public Luurankokuningas(Sankari kohde) {
         super(45, 15, 4);
@@ -32,7 +36,7 @@ public class Luurankokuningas extends Morko {
 
     /**
      * Metodi palauttaa tämän vuoron toiminnan tyypin.
-     * 
+     *
      * @return suoritettava toiminto
      */
     @Override
@@ -49,13 +53,13 @@ public class Luurankokuningas extends Morko {
 
     /**
      * Metodi tuottaa hyökkäyskohtaisen vahingon.
-     * 
-     * @see taistelupeli.pelaaja.Sankari#hyokkaa() 
-     * 
-     * @see taistelupeli.vastus.Minotauri#hyokkaa() 
-     * 
-     * @see taistelupeli.vastus.Hiisi#hyokkaa() 
-     * 
+     *
+     * @see taistelupeli.pelaaja.Sankari#hyokkaa()
+     *
+     * @see taistelupeli.vastus.Minotauri#hyokkaa()
+     *
+     * @see taistelupeli.vastus.Hiisi#hyokkaa()
+     *
      * @return hyökkäyksen vahinko
      */
     @Override
@@ -65,60 +69,58 @@ public class Luurankokuningas extends Morko {
 
     /**
      * Metodi aloittaa ja ylläpitää Luurankokuninkaan erikoistaidon toiminnan.
-     * 
-     * Luurankokuninkaan erikoitaito eroaahuomattavasti muista.
-     * Aloitettuaan sen, Luurankokuningas ei siitä poikkea ja päästessään loppuun lopettaa se pelaajan pelin siihen paikkaan.
+     *
+     * Luurankokuninkaan erikoitaito eroaahuomattavasti muista. Aloitettuaan
+     * sen, Luurankokuningas ei siitä poikkea ja päästessään loppuun lopettaa se
+     * pelaajan pelin siihen paikkaan.
+     * @return erikoistaidon vaihekohtainen tilannepäivitys
      */
     @Override
-    public void spesialisoi() {
+    public String spesialisoi() {
         switch (ultimaLaskuri) {
-            case -1 :
-                System.out.println("Tämä riittää! On aika lopettaa taistelumme!\n"
-                                 + this + "alkaa manata jotain suurta...");
+            case -1:
                 ultimaLaskuri = 3;
-                break;
-            case 3 :
-                System.out.println("Tuhosi koittaa pian! " + this + " julistaa.");
+                return "Tämä riittää! On aika lopettaa taistelumme!\n"
+                        + this + "alkaa manata jotain suurta...\n";
+            case 3:
                 ultimaLaskuri--;
-                break;
-            case 2 :
-                System.out.println(this + " naurahtaa: \"Nyeh-heh-heh!\"");
+                return "Tuhosi koittaa pian! " + this + " julistaa.\n";
+            case 2:
                 ultimaLaskuri--;
-                break;
-            case 1 :
-                System.out.println(this + " on melkein valmis loitsunsa kanssa!\n"
-                                 + "Hänen on kaaduttava nyt!");
+                return this + " naurahtaa: \"Nyeh-heh-heh!\"\n";
+            case 1:
                 ultimaLaskuri--;
-                break;
-            case 0 :
-                System.out.println("Loppu on tullut. " + this + " laukaisee loitsunsa!");
+                return this + " on melkein valmis loitsunsa kanssa!\nHänen on kaaduttava nyt!\n";
+            case 0:
                 kohde.otaVahinkoa(kohde.getKesto());
-                break;
+                return "Loppu on tullut. " + this + " laukaisee loitsunsa!\n";
+            default :
+                return "Nyt ollaan jännän äärellä.";
         }
     }
 
     /**
      * Metodi palauttaa luokkaa vastaavan merkkijonoesityksen.
-     * 
+     *
      * @return String "Luurankokuningas"
      */
     @Override
     public String toString() {
         return "Luurankokuningas";
     }
-    
+
     /**
      * Metodia käytetään vain luokan testaamiseen.
-     * 
+     *
      * @return oliomuuttuja ultimaLaskurin arvo
      */
     public int getUltimaLaskuri() {
         return ultimaLaskuri;
     }
-    
+
     /**
      * Metodia käytetään luokan testaamiseen.
-     * 
+     *
      * @return Luurankokuninkaan poloinen vastustaja
      */
     public Sankari getKohde() {

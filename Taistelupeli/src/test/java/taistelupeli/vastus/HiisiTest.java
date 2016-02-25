@@ -78,5 +78,8 @@ public class HiisiTest {
         assertEquals(klarg.toString(), "Hiisi");
     }
     
-    //spesiaali pitäis kai teoriassa testata. Osaispa PrintStreamien käsittelyn.
+    @Test
+    public void spesiaaliPalauttaaOikeaaTekstia() {
+        assertEquals(klarg.spesialisoi(), "Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.");
+    }
 }
