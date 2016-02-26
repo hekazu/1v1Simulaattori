@@ -4,3 +4,4 @@ Tässä repossa syntyy DnD:n uusimman version combatin säännöillä toimiva vu
 ### Dokumentaatio
 - [Tarkempi aihekuvaus](Dokumentointi/aihemaarittely.md)
 - [Tehdyn työn tuntikirjanpito](Dokumentointi/tuntikirjanpito.md)
+- [Rakennekuvaus](Dokumentointi/rakennekuvaus.md)

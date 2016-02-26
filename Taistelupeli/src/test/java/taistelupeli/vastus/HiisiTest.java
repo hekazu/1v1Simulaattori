@@ -80,6 +80,6 @@ public class HiisiTest {
     
     @Test
     public void spesiaaliPalauttaaOikeaaTekstia() {
-        assertEquals(klarg.spesialisoi(), "Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.");
+        assertEquals(klarg.spesialisoi(), "Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.\n");
     }
 }

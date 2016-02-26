@@ -103,6 +103,6 @@ public class MinotauriTest {
     
     @Test
     public void spesiaaliPalauttaaOikeaaTekstia() {
-        assertEquals(etc.spesialisoi(), "Hirviömäinen otus polkee sorkkajalkaansa maata vasten ja laskee päätään.\n Tämä ei vaikuta hyvältä...");
+        assertEquals(etc.spesialisoi(), "Hirviömäinen otus polkee sorkkajalkaansa maata vasten ja laskee päätään.\n Tämä ei vaikuta hyvältä...\n");
     }
 }

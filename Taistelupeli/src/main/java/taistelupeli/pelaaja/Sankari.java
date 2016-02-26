@@ -132,7 +132,7 @@ public abstract class Sankari {
      */
     @Override
     public String toString() {
-        return "Kesto: " + kesto +"\n"
+        return "Kesto: " + kesto + "\n"
              + "Ase: " + ase + "\n"
              + "AC: " + armourClass + "\n"
              + "Mod: " + statMod;

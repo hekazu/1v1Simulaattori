@@ -14,6 +14,7 @@ public class Kayttis extends javax.swing.JFrame {
 
     /**
      * Creates new form Kayttis
+     * @param peli peli jolle käyttis luodaan
      */
     public Kayttis(Peli peli) {
         initComponents();
