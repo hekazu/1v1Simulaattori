@@ -82,4 +82,13 @@ public class HiisiTest {
     public void spesiaaliPalauttaaOikeaaTekstia() {
         assertEquals(klarg.spesialisoi(), "Hiisi irvistää ilkeästi, muttei tee muuten mitään hyödyllistä.\n");
     }
+    
+    @Test
+    public void postMortemPelaa() {
+        String vrt = "Hiisi kaatuu kuolleena maahan.\n"
+                + " Ystäväsi nyökkäilevät. Ehkä sinusta onkin tähän.\n"
+                + " Näin ollen aloitat itsevarmana matkasi vuorille.\n"
+                + " Muutaman päivän jälkeen löydät pahaenteisen luolan...\n";
+        assertEquals(klarg.postMortem(), vrt);
+    }
 }

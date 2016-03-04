@@ -19,3 +19,5 @@
 - 24.2.2016, kolme varttia (45min) käytetty koodin erinäisiin pikkumuutoksiin, muun muassa sankarin spesiaalin käyttöliittymäpäivitysten toteuttamiseen. Javadocceja myös päivitetty vastaamaan muutoksia.
 
 - 26.2.2016, tunti (1), vähän päälle, käytetty dokumentaation saattamiseen ajan tasalle. Myös .jar luotu. 
+
+- 4.3.2016, tunti (1) varsinaista ohjelmointia, lisättiin uuden pelin kutsu ja sen mukana käyttäjäystävällisempi(?) quit. Lisäksi tarinantynkää lisätty pelin koodiin, tulevaisuudessa pitänee välttää kovakoodausta ja ulkoistaa se tekstitiedostoihin. Dokumentaation päivitys vei tämän lisäksi noin kaksikymmentä (20) minuuttia.

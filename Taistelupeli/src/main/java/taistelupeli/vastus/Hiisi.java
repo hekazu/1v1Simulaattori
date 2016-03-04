@@ -68,4 +68,16 @@ public class Hiisi extends Morko {
     public String toString() {
         return "Hiisi";
     }
+    
+    /**
+     * Metodi palauttaa mörön kuolinkorinat ja niihin liittyvä tarinan eteneminen.
+     * @return Hiiden kuolinkorinat ja niihin liittyvä tarinan eteneminen
+     */
+    @Override
+    public String postMortem() {
+        return super.postMortem()
+                + " Ystäväsi nyökkäilevät. Ehkä sinusta onkin tähän.\n"
+                + " Näin ollen aloitat itsevarmana matkasi vuorille.\n"
+                + " Muutaman päivän jälkeen löydät pahaenteisen luolan...\n";
+    }
 }

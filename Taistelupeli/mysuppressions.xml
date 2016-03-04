@@ -7,4 +7,5 @@
 <suppressions>
     <suppress files="Paaohjelma.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="Kayttis.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="UusiPeliRuutu.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

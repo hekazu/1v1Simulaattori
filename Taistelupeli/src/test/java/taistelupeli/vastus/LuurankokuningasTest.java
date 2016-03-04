@@ -102,4 +102,9 @@ public class LuurankokuningasTest {
         assertEquals(leoric.spesialisoi(), leoric + " on melkein valmis loitsunsa kanssa!\nHänen on kaaduttava nyt!\n");
         assertEquals(leoric.spesialisoi(), "Loppu on tullut. " + leoric + " laukaisee loitsunsa!\n");
     }
+    
+    @Test
+    public void postMortemPelaa() {
+        assertEquals(leoric.postMortem(), "Luurankokuningas kaatuu kuolleena maahan.\n");
+    }
 }

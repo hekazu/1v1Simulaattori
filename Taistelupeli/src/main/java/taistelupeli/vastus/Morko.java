@@ -83,4 +83,12 @@ public abstract class Morko {
     
     @Override
     public abstract String toString();
+    
+    /**
+     * Metodi palauttaa mörön kuollessa siitä annettavan kuvauksen.
+     * @return mörön kuolinkorinat
+     */
+    public String postMortem() {
+        return this.toString() + " kaatuu kuolleena maahan.\n";
+    }
 }

@@ -105,4 +105,9 @@ public class MinotauriTest {
     public void spesiaaliPalauttaaOikeaaTekstia() {
         assertEquals(etc.spesialisoi(), "Hirviömäinen otus polkee sorkkajalkaansa maata vasten ja laskee päätään.\n Tämä ei vaikuta hyvältä...\n");
     }
+    
+    @Test
+    public void postMortemPelaa() {
+        assertEquals(etc.postMortem(), "Minotauri kaatuu kuolleena maahan.\n");
+    }
 }

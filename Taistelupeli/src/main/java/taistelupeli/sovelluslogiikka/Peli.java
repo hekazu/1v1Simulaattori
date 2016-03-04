@@ -1,10 +1,8 @@
 package taistelupeli.sovelluslogiikka;
 
-import java.util.Scanner;
 import java.util.Stack;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import taistelupeli.kayttoliittyma.Kayttis;
+import taistelupeli.kayttoliittyma.UusiPeliRuutu;
 import taistelupeli.pelaaja.Kirves;
 import taistelupeli.pelaaja.Sankari;
 import taistelupeli.pelaaja.Soturi;
@@ -21,12 +19,11 @@ import taistelupeli.vastus.Morko;
  */
 public class Peli {
 
-    private Kayttis kayttoliittyma;
+    private final Kayttis kayttoliittyma;
     private Sankari pelaaja;
     private Stack<Morko> kampanja;
     private Morko pahis;
-    private Scanner lukija;
-    private Osumanoppa hitscan;
+    private final Osumanoppa hitscan;
 
     /**
      * Konstruktori luo monista hajanaisista luokista kokonaisuuden jota Peli
@@ -42,7 +39,6 @@ public class Peli {
 
         pahis = kampanja.pop();
         hitscan = new Osumanoppa();
-        lukija = new Scanner(System.in);
 
         kayttoliittyma = new Kayttis(this);
     }
@@ -57,7 +53,11 @@ public class Peli {
                 kayttoliittyma.setVisible(true);
             }
         });
-        kayttoliittyma.paivitaInforuutu(pahis + " seisoo tielläsi!\n");
+        kayttoliittyma.paivitaInforuutu("Kotikylääsi ja naapurikaupunkia uhkaa tuntematon vihollinen kaukana vuorilla.\n"
+                + " Olet päättänyt lähteä matkalle estämään tämän tuntemattoman pahuuden aikeet, niin hullulta kuin se vaikuttaakin.\n"
+                + " Ystäväsi eivät vain meinaa uskoa sinuun. He ovat väärässä, ja todistat sen haastamalla tämän...\n"
+                + " OTUKSEN taistoon.\n"
+                + pahis + " seisoo edessäsi!\n");
         kayttoliittyma.paivitaSankarinTiedot(pelaaja.toString());
     }
 
@@ -68,6 +68,14 @@ public class Peli {
             if (onkoKampanjaOhi()) {
                 kayttoliittyma.paivitaInforuutu("Voitit!");
                 kayttoliittyma.setEnabled(false);
+                UusiPeliRuutu newGame = new UusiPeliRuutu(this);
+                newGame.peliLapaistiin();
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        newGame.setVisible(true);
+                    }
+                });
             }
         }
         if (kasitteleVihollisenVuoro) {
@@ -76,6 +84,13 @@ public class Peli {
             if (pelaaja.havisitkoPelin()) {
                 kayttoliittyma.paivitaInforuutu("Turpiin tuli.\nRIP");
                 kayttoliittyma.setEnabled(false);
+                UusiPeliRuutu newGame = new UusiPeliRuutu(this);
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        newGame.setVisible(true);
+                    }
+                });
             }
         }
     }
@@ -105,27 +120,6 @@ public class Peli {
                 break;
         }
         paivitaPelitilanne();
-    }
-
-//      Tekstipohjaiseen debuggaukseen
-    private void pelaajanVuoro() {
-        System.out.println("Sinulla on vielä " + pelaaja.getKesto()
-                + " pistettä kestoa jäljellä.");
-        System.out.print("> ");
-        String komento = lukija.nextLine();
-        switch (komento) {
-            case "1":
-                pelaajanHyokkays();
-                break;
-            case "2":
-                pelaaja.spesiaali();
-                break;
-            case "3":
-                System.out.println("Tämä tulee toimintaan kunnolla vasta graafisessa liittymässä.");
-                break;
-            default:
-                System.out.println("Epäkelpo komento.");
-        }
     }
 
     private void pahiksenVuoro() {
@@ -158,14 +152,16 @@ public class Peli {
     }
 
     private boolean onkoKampanjaOhi() {
-        kayttoliittyma.paivitaInforuutu(pahis + " kaatuu kuolleena maahan.\n");
+        kayttoliittyma.paivitaInforuutu(pahis.postMortem());
         if (kampanja.empty()) {
             return true;
         } else {
             if (pahis.toString().equals("Minotauri")) {
                 pelaaja.aseenVaihto(new Kirves());
-                kayttoliittyma.paivitaInforuutu("Poimit minotaurin aseen käyttöösi.\nOnhan se hieman isokokoinen, mutta toiminee hyvin.\n"
-                        + "Taitosi tuntuvat muutenkin kehittyneen seikkailun edetessä!\nTaitoarvosi nousee!\n");
+                kayttoliittyma.paivitaInforuutu("Poimit minotaurin aseen käyttöösi.\n Onhan se hieman isokokoinen, mutta toiminee hyvin.\n"
+                        + " Taitosi tuntuvat muutenkin kehittyneen seikkailun edetessä!\n  Taitoarvosi nousee!\n"
+                        + " Varjoista astuu esiin itse paholainen, tai niin aurasta ainakin tuntuu.\n"
+                        + " Tämä taistelu ratkaisee kaiken!\n");
                 pelaaja.muutaModifier(pelaaja.getModifier() + 1);
             }
             pahis = kampanja.pop();
@@ -177,7 +173,10 @@ public class Peli {
         }
     }
 
-    private void pelaaUudestaan() {
+    /**
+     * Metodi aloittaa pelin alusta.
+     */
+    public void pelaaUudestaan() {
         pelaaja = new Soturi();
 
         kampanja = new Stack();
@@ -186,5 +185,9 @@ public class Peli {
         kampanja.push(new Hiisi());
 
         pahis = kampanja.pop();
+        kayttoliittyma.paivitaSankarinTiedot(pelaaja.toString());
+        kayttoliittyma.tyhjennaInforuutu();
+        kayttoliittyma.setEnabled(true);
+        this.aloita();
     }
 }

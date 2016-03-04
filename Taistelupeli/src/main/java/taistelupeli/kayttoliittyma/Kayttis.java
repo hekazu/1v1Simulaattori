@@ -151,4 +151,8 @@ public class Kayttis extends javax.swing.JFrame {
     public void paivitaSankarinTiedot(String newInfo) {
         jTextArea2.setText(newInfo);
     }
+    
+    public void tyhjennaInforuutu() {
+        jTextArea1.setText("");
+    }
 }
