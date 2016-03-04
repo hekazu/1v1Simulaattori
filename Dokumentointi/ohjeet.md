@@ -18,6 +18,6 @@ Taistelupelin käyttöliittymä on pohjimmiltaan hyvin yksinkertainen.
 
 ### Voittaminen ja häviäminen
 
-Pelin voittaminen tapahtuu kurmottamalla kaikki vastaantulevat pahikset maanrakoon, jonka jälkeen käyttöliittymä lakkaa vastaamasta käskyihin ja tulee sulkea ikkunan X näppäimestä.
+Pelin voittaminen tapahtuu kurmottamalla kaikki vastaantulevat pahikset maanrakoon, jonka jälkeen avautuu uusi ikkuna jossa voi halutessaan aloittaa alusta tai sulkea pelin.
 
-Häviäminen on seuraus sille, jos hahmosi kesto putoaa nollaan tai sen alle. Tällöinkin käyttöliittymä jumahtaa, mutta ensi versiossa tähän on tulossa muutos.
+Häviäminen on seuraus sille, jos hahmosi kesto putoaa nollaan tai sen alle. Tällöinkin uutta peliä trjoava ikkuna pompsahtaa eteesi.
