@@ -58,7 +58,7 @@ public class SoturiTest {
     }
     
     @Test
-    public void acMuunteluToimiiAlspain() {
+    public void acMuunteluToimiiAlaspain() {
         tauno.modifyArmourClass(-3);
         assertEquals(tauno.getArmourClass(), 14);
     }
